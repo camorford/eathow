@@ -2,13 +2,22 @@
 	<%= render 'shared/error_messages' %>
 
   <%= f.label :email %>
-  	<%= f.text_field :email %>
+  <%= f.text_field :email %>
 
   <%= f.label :password %>
-  	<%= f.password_field :password %>
+  <%= f.password_field :password %>
 
   <%= f.label :password_confirmation, "Confirmation" %>
-  	<%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+	<%= f.label :carbs %>
+	<%= f.text_field :carbs %> %
+
+	<%= f.label :protein %>
+	<%= f.text_field :protein %> %
+
+	<%= f.label :fat %>
+	<%= f.text_field :fat %> %
 
   <%= f.submit "Create my account" %>
 <% end %>
