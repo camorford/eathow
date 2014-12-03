@@ -1,23 +1,40 @@
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  
+  <div class="field">
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	</div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+   <div class="field">
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	</div>
 
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
+  <div class="field">
+	  <%= f.label :password_confirmation, "Confirmation" %>
+	  <%= f.password_field :password_confirmation %>
+	</div>
 
-	<%= f.label :carbs %>
-	<%= f.text_field :carbs %> %
+	<div class="field">
+		<%= f.label :carbs %>
+		<%= f.text_field :carbs %> %
+	</div>
 
-	<%= f.label :protein %>
-	<%= f.text_field :protein %> %
+	<div class="field">
+  	<%= f.label :protein %>
+		<%= f.text_field :protein %> %
+	</div>
 
-	<%= f.label :fat %>
-	<%= f.text_field :fat %> %
+	<div class="field">
+		<%= f.label :fat %>
+		<%= f.text_field :fat %> %
+	</div>
 
+ <div class="actions">
   <%= f.submit "Create my account" %>
+</div>
+
+
 <% end %>
