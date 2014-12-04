@@ -10,4 +10,32 @@
 	  <%= f.text_field :directions %>
 	</div>
 
+	<div class="field">
+	  <%= f.label :calories %>
+	  <%= f.text_field :calories %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :protein %>
+	  <%= f.text_field :protein %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :fat %>
+	  <%= f.text_field :fat %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :carbs %>
+	  <%= f.text_field :carbs %>
+	</div>
+
+	<!-- ingredients -->
+	<%= f.fields_for :ingredients do |ingredient| %>
+		<%= render 'ingredient_fields', :f => ingredient %>
+		<%= link_to_association 'add ingredient',f, :ingredient %>
+	<% end %>
+
+<% f.submit %>
+
 <% end %>
