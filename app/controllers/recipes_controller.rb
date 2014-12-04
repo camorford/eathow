@@ -4,8 +4,10 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.new
 	end
 
-	def recipe_params
-  		params.require(:recipe).permit(:name,:directions,:carbs,:protein,)
+	private
+
+		def recipe_params
+  		params.require(:recipe).permit(:name,:directions)
   	end
 
 end
