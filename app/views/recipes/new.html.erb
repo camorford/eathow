@@ -1,4 +1,5 @@
 <%= form_for(@recipe) do |f| %>
+<%= render 'shared/recipe_error_messages' %>
 
 	<div class="field">
 	  <%= f.label :name %>
@@ -17,25 +18,27 @@
 
 	<div class="field">
 	  <%= f.label :protein %>
-	  <%= f.text_field :protein %>
+	  <%= f.text_field :protein %>%
 	</div>
 
 	<div class="field">
 	  <%= f.label :fat %>
-	  <%= f.text_field :fat %>
+	  <%= f.text_field :fat %>%
 	</div>
 
 	<div class="field">
 	  <%= f.label :carbs %>
-	  <%= f.text_field :carbs %>
+	  <%= f.text_field :carbs %>%
 	</div>
-
-	<!-- ingredients -->
+	
+	<div id="ingredients">
 	<%= f.fields_for :ingredients do |ingredient| %>
-		<%= render 'ingredient_fields', :f => ingredient %>
-		<%= link_to_association 'add ingredient',f, :ingredient %>
+		<%= render 'ingredients/ingredient_fields', :f => ingredient %>
 	<% end %>
-
-<% f.submit %>
+	<%= link_to_add_association 'add ingredient',f, :ingredients, partial:"ingredients/ingredient_fields" %>
+	</div>
+ <%= f.submit %>
 
 <% end %>
+
+<%= debug @recipe %>
