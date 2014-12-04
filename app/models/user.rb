@@ -39,4 +39,7 @@ class User < ActiveRecord::Base
 		update_attribute(:remember_digest, nil)
 	end
 
+	def macros
+		[protein, carbs, fat]
+	end
 end

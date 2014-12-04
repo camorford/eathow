@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
 	def index
-		@recipes = Recipe.all
+		@recipes = Recipe.macros(current_user.macros)
 	end
 
 	def show
