@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 	validates :password, length: {minimum:6}, allow_blank: true
+	validates :protein, :carbs, :fat, presence:true
 
 	def User.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
