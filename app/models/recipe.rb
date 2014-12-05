@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  before_save :ingredient_repeat
 
 	has_many :recipe_ingredients
 	has_many :ingredients, through: :recipe_ingredients
@@ -9,11 +10,19 @@ class Recipe < ActiveRecord::Base
 
 	validate :macros_equal_100
  
+    def ingredient_repeat
+      ingredients_attributes.each do |ingredients|  #[{},{},{}]
+        Ingredient.find_or_create(name: name)
+      end
+    end
+
   	def macros_equal_100 
     	if carbs+protein+fat != 100
     		errors.add(:recipe,"Macros have to add up to 100%")
     	end
     end
+
+    def 
 
     #ATTEMPT AT VALIDATING INGREDIENT SO IT'S NOT BLANK
     # def name_not_blank
@@ -42,7 +51,7 @@ class Recipe < ActiveRecord::Base
 
 		def dailycalories(user_calories)
       if user_calories
-        calories.to_f/user_calories
+        (calories.to_f/user_calories)*100
       else
         calories
       end

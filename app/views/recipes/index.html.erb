@@ -5,7 +5,7 @@
   <% @recipes.each do |recipe| %>
     <li>
       <%= link_to recipe.name, recipe %>
-      <%= recipe.dailycalories(current_user.calories)*100 %>
+      <%= recipe.dailycalories(current_user.calories) %>
     </li>
   <% end %>
 </ul>
