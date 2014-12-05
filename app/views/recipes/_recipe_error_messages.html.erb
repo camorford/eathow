@@ -1,0 +1,8 @@
+<% if @recipe.errors.any? %>
+      The form contains <%= pluralize(@recipe.errors.count, "error") %>.
+    <ul>
+    <% @recipe.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>

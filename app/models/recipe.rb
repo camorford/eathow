@@ -15,6 +15,7 @@ class Recipe < ActiveRecord::Base
     	end
     end
 
+    #ATTEMPT AT VALIDATING INGREDIENT SO IT'S NOT BLANK
     # def name_not_blank
     #   if ingredients_attributes['name'].blank?
     #     errors.add(ingredients_attributes['name'],"ingredients can't be left empty")
@@ -39,9 +40,9 @@ class Recipe < ActiveRecord::Base
     	where(protein: min_protein..max_protein).where(carbs: min_carbs..max_carbs).where(fat:min_fat..max_fat)
 		end
 
-		def daily_calories(user_calories)
+		def dailycalories(user_calories)
       if user_calories
-        calories/user_calories
+        calories.to_f/user_calories
       else
         calories
       end

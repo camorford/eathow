@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
 	validates :password, length: {minimum:6}, allow_blank: true
 	validates :protein, :carbs, :fat, presence:true, numericality: { only_integer: true }
 
+	validate :macros_equal_100
+ 
+	def macros_equal_100 
+  	if carbs+protein+fat != 100
+  		errors.add(:recipe,"Macros have to add up to 100%")
+  	end
+  end
+
 	def User.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
