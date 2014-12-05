@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+
 	has_many :recipe_ingredients
 	has_many :ingredients, through: :recipe_ingredients
 	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
@@ -14,8 +15,13 @@ class Recipe < ActiveRecord::Base
     	end
     end
 
+    # def name_not_blank
+    #   if ingredients_attributes['name'].blank?
+    #     errors.add(ingredients_attributes['name'],"ingredients can't be left empty")
+    #   end
+    # end
+
     # Method returns a collection of recipes from the database
-    	# 
     def self.macros(user_macros)
     	protein = user_macros[0]
     	carbs = user_macros[1]
@@ -34,6 +40,10 @@ class Recipe < ActiveRecord::Base
 		end
 
 		def daily_calories(user_calories)
-			calories/user_calories
+      if user_calories
+        calories/user_calories
+      else
+        calories
+      end
 		end
 end
