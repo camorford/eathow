@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  before_save :ingredient_repeat
+  before_save :check_ingredients
 
 	has_many :recipe_ingredients
 	has_many :ingredients, through: :recipe_ingredients
@@ -10,10 +10,13 @@ class Recipe < ActiveRecord::Base
 
 	validate :macros_equal_100
  
-    def ingredient_repeat
-      ingredients_attributes.each do |ingredients|  #[{},{},{}]
-        Ingredient.find_or_create(name: name)
+    def check_ingredients
+      ingredients = self.ingredients.map(&:name).map do |ingredient_name|
+        Ingredient.find_or_create_by(name: ingredient_name)
       end
+
+      self.ingredients.clear
+      self.ingredients = ingredients
     end
 
   	def macros_equal_100 
@@ -22,8 +25,6 @@ class Recipe < ActiveRecord::Base
     	end
     end
 
-    def 
-
     #ATTEMPT AT VALIDATING INGREDIENT SO IT'S NOT BLANK
     # def name_not_blank
     #   if ingredients_attributes['name'].blank?
@@ -31,7 +32,6 @@ class Recipe < ActiveRecord::Base
     #   end
     # end
 
-    # Method returns a collection of recipes from the database
     def self.macros(user_macros)
     	protein = user_macros[0]
     	carbs = user_macros[1]

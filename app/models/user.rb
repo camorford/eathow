@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
+	attr_accessor :remember_token
+	
 	has_many :user_ingredients
 	has_many :ingredients, through: :user_ingredients
-
-	attr_accessor :remember_token
 
 	before_save { self.email = email.downcase }
 
