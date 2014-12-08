@@ -30,9 +30,6 @@
 	  <%= f.label :carbs %>
 	  <%= f.text_field :carbs %>%
 	</div>
-
-	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-	<%= f.file_field :nutrition_picture, accept: 'image/jpeg,image/gif,image/png' %>
 	
 	<div id="ingredients">
 	<%= f.fields_for :ingredients do |ingredient| %>
@@ -40,6 +37,10 @@
 	<% end %>
 	<%= link_to_add_association 'add ingredient',f, :ingredients, partial:"ingredients/ingredient_fields" %>
 	</div>
+
+	<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+	<%= f.file_field :nutrition_picture, accept: 'image/jpeg,image/gif,image/png' %>
+	
  <%= f.submit %>
 
 <% end %>

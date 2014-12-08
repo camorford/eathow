@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	
 	has_many :user_ingredients
 	has_many :ingredients, through: :user_ingredients
+	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
 
 	before_save { self.email = email.downcase }
 
