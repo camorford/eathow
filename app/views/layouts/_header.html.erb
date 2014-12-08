@@ -1,17 +1,27 @@
-<header class="page-header">
-	<%= image_tag "eathow.png" %>
+<header class="page-header group">
 	<nav>
-		<ul class="nav nav-pills pull-left test">
+		<ul class="nav nav-pills pull-left">
+			<li><a href=""><%= image_tag "eathow.png" %></a></li>
 			<li><a href="">Home</a></li>
 			<li><a href="">About</a></li>
+			<li><a href="">Prep</a></li>
+		</ul>
+		<ul class="nav nav-pills pull-right">
 			<% if logged_in? %>
 				<li><%= link_to "Profile", current_user %></li>
-				<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-				<li><%= link_to "Log out", logout_path, method: "delete" %></li>
 			<% else %>
+				<li><%= link_to "Sign Up", login_path %></li>
 				<li><%= link_to "Log in", login_path %></li>
 			<% end %>
 		</ul>
 	</nav>
-	
 </header>
+
+
+
+
+
+
+				
+<%#= link_to "Settings", edit_user_path(current_user) %>
+<%#= link_to "Log out", logout_path, method: "delete" %>
