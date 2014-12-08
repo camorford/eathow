@@ -1,2 +1,3 @@
 <%= @recipe.name %>
 <%= image_tag @recipe.picture.url if @recipe.picture? %>
+<%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>

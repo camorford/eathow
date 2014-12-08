@@ -6,12 +6,12 @@ class Recipe < ActiveRecord::Base
 	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
 
   mount_uploader :picture, PictureUploader
+  mount_uploader :nutrition_picture, PictureUploader 
 
 	validates :name,:directions,:calories,:protein,:carbs,:fat,presence:true
 	validates :calories,:protein,:carbs,:fat,numericality: { only_integer: true }
 
-	validate :macros_equal_100
-  validate :picture_size
+	validate :macros_equal_100, :picture_size, :nutrition_pic_size
 
   def self.macros(user_macros)
   	protein = user_macros[0]
@@ -43,6 +43,12 @@ class Recipe < ActiveRecord::Base
     def picture_size
       if picture.size > 5.megabytes
         errors.add(:picture, "should be less than 5MB")
+      end
+    end
+
+    def nutrition_pic_size
+      if nutrition_picture.size > 5.megabytes
+        errors.add(:nutrition_picture, "should be less than 5MB")
       end
     end
 
