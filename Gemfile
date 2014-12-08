@@ -38,3 +38,7 @@ gem 'spring',        group: :development
 gem 'bcrypt'
 
 gem 'cocoon', '~>1.2.6'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
