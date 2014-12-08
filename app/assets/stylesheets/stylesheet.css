@@ -1,32 +1,116 @@
+/***** GLOBAL *****/
+
+a:-webkit-any-link {text-decoration: none}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
+img {max-width:100%;}
+
 .container-fluid {padding: 0;}
 
-.page-header {
+
+
+/***** NAVIGATION *****/
+
+nav {
+  font-size: 1.8em;
   margin: 0px;
-  padding: 0px
 }
 
-nav ul:first-child li:first-child a {padding: 0px}
+nav ul {padding-left: 10px;}
+
+#user_nav {float: right; font-size: 0.6em}
+
+nav ul, nav li {display:inline;}
+
+nav a {
+  padding: 10px;
+  color:#5F5E5E;
+  text-decoration: none;
+}
+
+#logo {margin-top: 12px}
+
+#logo a {padding: 0px }
+
+
+nav {
+  line-height: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+nav img {vertical-align: middle}
+
+
+
+/***** HOMEPAGE *****/
 
 #home_header {
 	height: 650px;
 	display: block;
   position: relative;
+  border-top: 1px solid #989898;
+  border-bottom: 1px solid #989898;
 }
 
 #home_header::after {
 	content: "";
 	background-image: url('homepage.jpg');
-  opacity: 0.7;
+  background-size: cover;
+  opacity: 1;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;  
+}
+
+#home_header p:first-child {
+  color: white;
+  font-size: 1.7em;
+  line-height: 1.5em;
+  position: absolute;
+  width: 600px;
+  margin: 80px;
+}
+
+.signup_button {
+  color:white;
+  text-decoration: none;
+  font-size: 1.8em;
+  position: absolute;
+  margin-left: 95px;
+  margin-top: 360px;
+  background-color: #EB930D;
+  padding: 8px 13px;
+  border-radius: 6px;
+  box-shadow: 0 5px 1px #B97103;
+}
+
+.signup_button:active {box-shadow: none; margin-top: 365px}
+
+.login_button {
+  font-size: 1.8em;
+  position: absolute;
+  margin-left: 250px;
+  margin-top: 372px;
+  color: white;
+  border-bottom: 1px dashed white;
+}
+
+.login_button:hover {
+  color: #CECECE;
+  border-bottom: 1px dashed #A2A0A0;
 }

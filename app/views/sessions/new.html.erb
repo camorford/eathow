@@ -2,25 +2,10 @@
 
 <p>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. </p>
 
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<a href="" class="signup_button">Sign Up</a>
 
-<%= form_for(:session, url: login_path) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+<%# provide(:title, "Log in") %>
+<!-- <h1>Log in</h1> -->
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
 
-  <%= f.label :remember_me do %>
-    <%= f.check_box :remember_me %>
-	  <span>Remember me</span>
-  <% end %>
-
-  <%= f.submit "Log in" %>
-<% end %>
-
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
-
-</div>

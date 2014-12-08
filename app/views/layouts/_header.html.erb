@@ -1,27 +1,28 @@
-<header class="page-header group">
-	<nav>
-		<ul class="nav nav-pills pull-left">
-			<li><a href=""><%= image_tag "eathow.png" %></a></li>
-			<li><a href="">Home</a></li>
-			<li><a href="">About</a></li>
-			<li><a href="">Prep</a></li>
-		</ul>
-		<ul class="nav nav-pills pull-right">
-			<% if logged_in? %>
-				<li><%= link_to "Profile", current_user %></li>
-			<% else %>
-				<li><%= link_to "Sign Up", login_path %></li>
-				<li><%= link_to "Log in", login_path %></li>
+<nav class="group">
+	<ul>
+		<li><%= link_to image_tag("eathow.png"), id:"logo" %></li>
+		<li><a href="" >prep</a></li>
+		<li><a href="">about</a></li>
+	</ul>
+	<ul id="user_nav">
+		<% if logged_in? %>
+			<li><%= link_to "profile", current_user %></li>
+		<% else %>
+			<%= form_for(:session, url: login_path) do |f| %>
+
+			  <%= f.text_field :email, :value => "email address" %>
+
+			  <%= f.password_field :password, :value => "password"%>
+
+			  <%= f.label :remember_me do %>
+			    <%= f.check_box :remember_me %>
+				  <span>Remember me</span>
+			  <% end %>
+
+			  <%= f.submit "Log in" %>
+			  <%= link_to "Sign Up", signup_path %>
 			<% end %>
-		</ul>
-	</nav>
-</header>
-
-
-
-
-
-
-				
-<%#= link_to "Settings", edit_user_path(current_user) %>
-<%#= link_to "Log out", logout_path, method: "delete" %>
+			
+		<% end %>
+	</ul>
+</nav>
