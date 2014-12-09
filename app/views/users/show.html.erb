@@ -1,2 +1,30 @@
-<%= gravatar_for @user %>
-<%= @user.email %>
+<%= gravatar_for @user %><br><Br>
+
+<%= @user.email %><br>
+<%= @user.name %>
+<%= link_to "Edit User Information", edit_user_path %>
+
+
+
+<h1>Favorited Recipes</h1>
+
+<ul> 
+	<% if @user.favorites.any? %>
+   		<% @user.favorites.each do |favorite| %>
+    <li>
+    	<%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
+      	<%= favorite.recipe.name %>
+    </li>
+  <% end %>
+ <% end %>
+</ul>
+
+
+<h1>Daily Macros</h1>
+
+<ul>
+	<li>Calorie Intake: <%= @user.calories %></li>
+	<li>Protein: <%= @user.protein %></li>
+	<li>Carbs: <%= @user.carbs %></li>
+	<li>Fat: <%= @user.fat %></li>
+</ul>

@@ -13,9 +13,11 @@
 <h1>Favorited Recipes</h1>
 
 <ul> 
+  <%= if @favorite.recipes.any? %>
    <% @favorite.each do |favorite| %>
     <li>
       <%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
     </li>
+ <% end %>
  <% end %>
 </ul>
