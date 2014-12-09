@@ -1,11 +1,21 @@
-<% provide(:title, 'All recipes') %>
+<%# provide(:title, 'All recipes') %>
 <h1>All recipes</h1>
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.name, recipe %>
-      <%= recipe.dailycalories(current_user.calories) %>
+  <li>
+    Title: <%= link_to recipe.name, recipe %><br>
     </li>
   <% end %>
+</ul>
+
+
+<h1>Favorited Recipes</h1>
+
+<ul> 
+   <% @favorite.each do |favorite| %>
+    <li>
+      <%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
+    </li>
+ <% end %>
 </ul>

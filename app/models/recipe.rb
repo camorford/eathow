@@ -1,8 +1,9 @@
 class Recipe < ActiveRecord::Base
   before_save :check_ingredients
-
-	has_many :recipe_ingredients
+  has_many :recipe_ingredients
+  has_many :favorites, dependent: :destroy
 	has_many :ingredients, through: :recipe_ingredients
+
 	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
 
 	validates :name,:directions,:calories,:protein,:carbs,:fat,presence:true
@@ -24,13 +25,6 @@ class Recipe < ActiveRecord::Base
     		errors.add(:recipe,"Macros have to add up to 100%")
     	end
     end
-
-    #ATTEMPT AT VALIDATING INGREDIENT SO IT'S NOT BLANK
-    # def name_not_blank
-    #   if ingredients_attributes['name'].blank?
-    #     errors.add(ingredients_attributes['name'],"ingredients can't be left empty")
-    #   end
-    # end
 
     def self.macros(user_macros)
     	protein = user_macros[0]

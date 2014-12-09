@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 	
 	has_many :user_ingredients
 	has_many :ingredients, through: :user_ingredients
+	has_many :favorites
+	has_many :favorite_recipes, through: :favorites, source: :favorited, source_type: 'Recipe'
 
 	before_save { self.email = email.downcase }
 
@@ -49,5 +51,9 @@ class User < ActiveRecord::Base
 
 	def macros
 		[protein, carbs, fat]
+	end
+
+	def favorited?(recipe)
+		Favorite.where(recipe_id: recipe.id, user_id: self.id).empty?
 	end
 end

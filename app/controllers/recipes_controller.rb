@@ -2,11 +2,13 @@ class RecipesController < ApplicationController
 
 	def index
 		@recipes = Recipe.macros(current_user.macros)
+		@favorite = Favorite.where(user_id: current_user.id)
 	end
 
 	def show
-    @recipe = Recipe.find(params[:id])
-  end
+    	@recipe = Recipe.find(params[:id])
+    	@favorite = Favorite.new
+  	end
 
 	def new
 		@recipe = Recipe.new
