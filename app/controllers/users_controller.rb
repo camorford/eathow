@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
 
   def index
     @users = User.all
@@ -38,6 +38,17 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+
+  def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: 'User removed' }
+        format.json { head :no_content }
+      end
+    end
+
 
   private
 

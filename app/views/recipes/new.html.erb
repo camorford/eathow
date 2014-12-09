@@ -30,7 +30,9 @@
 	  <%= f.label :fat %>
 	  <%= f.text_field :fat %>%
 	</div>
-	
+
+	<br><br>
+	<h3>Add Ingredients</h3>
 	<div id="ingredients">
 	<%= f.fields_for :ingredients do |ingredient| %>
 		<%= render 'ingredients/ingredient_fields', :f => ingredient %>

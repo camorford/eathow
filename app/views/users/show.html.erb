@@ -1,8 +1,12 @@
 <%= gravatar_for @user %><br><Br>
 
-<%= @user.email %><br>
-<%= @user.name %>
-<%= link_to "Edit User Information", edit_user_path %>
+<%#= @user.email %>
+Welcome <%= @user.name %>!<br>
+
+
+<% if logged_in? %>
+  <%= link_to "Edit User Information", edit_user_path %>
+<% end %>
 
 
 
@@ -20,11 +24,16 @@
 </ul>
 
 
+
+
 <h1>Daily Macros</h1>
 
 <ul>
-	<li>Calorie Intake: <%= @user.calories %></li>
-	<li>Protein: <%= @user.protein %></li>
-	<li>Carbs: <%= @user.carbs %></li>
-	<li>Fat: <%= @user.fat %></li>
+  <% if @user.calories %>
+	   <li>Calorie Intake: <%= @user.calories %></li>
+  <% end %>
+  	<li>Protein: <%= @user.protein %></li>
+  	<li>Carbs: <%= @user.carbs %></li>
+  	<li>Fat: <%= @user.fat %></li>
 </ul>
+
