@@ -22,13 +22,12 @@
 
 
 <h3>Directions</h3>
-<%= @recipe.directions %>
+<%= @recipe.directions %><br><br>
 
 
+<%= link_to "Edit Recipe", edit_recipe_path %><br>
+<%= link_to "Back to Recipes", recipes_path %><br>
 <br><br>
-
-<%= link_to "Back to recipes", recipes_path %><br>
-
 
 <% if current_user.favorited?(@recipe) %>
 <%= render 'add_favorite', recipe: @recipe %>

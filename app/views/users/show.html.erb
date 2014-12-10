@@ -9,15 +9,13 @@ Welcome <%= @user.name %>!<br>
 <% end %>
 
 
-
+<% if @user.favorites.any? %>
 <h1>Favorited Recipes</h1>
 
 <ul> 
-	<% if @user.favorites.any? %>
    		<% @user.favorites.each do |favorite| %>
     <li>
     	<%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
-      	<%= favorite.recipe.name %>
     </li>
   <% end %>
  <% end %>

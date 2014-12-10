@@ -1,0 +1,45 @@
+<%= form_for(@recipe) do |f| %>
+<%= render 'recipe_error_messages' %>
+
+	<div class="field">
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :directions %>
+	  <%= f.text_field :directions %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :calories %>
+	  <%= f.text_field :calories %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :carbs %>
+	  <%= f.text_field :carbs %>%
+	</div>
+
+	<div class="field">
+	  <%= f.label :protein %>
+	  <%= f.text_field :protein %>%
+	</div>
+
+	<div class="field">
+	  <%= f.label :fat %>
+	  <%= f.text_field :fat %>%
+	</div>
+
+	<br><br>
+	<h3>Add Ingredients</h3>
+	<div id="ingredients">
+	<%= f.fields_for :ingredients do |ingredient| %>
+		<%= render 'ingredients/ingredient_fields', :f => ingredient %>
+	<% end %>
+	<%= link_to_add_association 'add ingredient',f, :ingredients, partial: "ingredients/ingredient_fields" %>
+	</div>
+
+  <%= f.submit "Save changes" %>
+
+<% end %>

@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
 		@favorite = Favorite.where(user_id: current_user.id)
 	end
 
+	def edit
+    	@recipe = Recipe.find(params[:id])
+  	end
+
 	def show
     	@recipe = Recipe.find(params[:id])
     	@favorite = Favorite.new
@@ -22,6 +26,16 @@ class RecipesController < ApplicationController
   	else
   		render 'new'
   	end
+  end
+
+    def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update_attributes(recipe_params)
+      flash[:success] = "Profile updated"
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
   end
 
 	private
