@@ -1,39 +1,33 @@
 <%# provide(:title, 'All recipes') %>
 <h1>All recipes</h1>
 
+
 <ul>
-  <% @recipes.each do |recipe| %>
-  <li>
-    Title: <%= link_to recipe.name, recipe %><br>
+    <% @recipes.each do |recipe| %>
+      <li>
+      <%= image_tag recipe.picture.url %>
+      <%= link_to recipe.name, recipe %>
+      <%= recipe.dailycalories(current_user.calories) %>
     </li>
   <% end %>
 </ul>
 
 <% if @favorite.any? %>
 
-	<h1>Favorited Recipes</h1>
+<h1>Favorited Recipes</h1>
 
-	<ul> 
-	   <% @favorite.each do |favorite| %>
-	    <li>
-	      <%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
-	    </li>
-	 <% end %>
-
+<ul> 
+   <% @favorite.each do |favorite| %>
+    <li>
+      <%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
+    </li>
  <% end %>
 </ul>
+<% end %>
 
-    <li>
-    	<%= image_tag recipe.picture.url %>
-      <%= link_to recipe.name, recipe %>
-      <%= recipe.dailycalories(current_user.calories) %>
-    </li>
-  <% end %>
 
-</ul>
-
-	<% if params[:match] %>
-		<%= link_to "Un-Match", recipes_path %>
-	<% else %>
-		<%= link_to "Match", recipes_path(match: "") %>
-	<% end %>
+<% if params[:match] %>
+	<%= link_to "Un-Match", recipes_path %>
+<% else %>
+	<%= link_to "Match", recipes_path(match: "") %>
+<% end %>

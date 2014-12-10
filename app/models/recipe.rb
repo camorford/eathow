@@ -27,12 +27,8 @@ class Recipe < ActiveRecord::Base
   	min_carbs = carbs - 5
   	max_carbs = carbs + 5
 
-    def self.macros(user_macros)
-    	protein = user_macros[0]
-    	carbs = user_macros[1]
-    	fat = user_macros[2]
-  	 min_fat = fat - 5
-  	 max_fat = fat + 5
+	  min_fat = fat - 5
+	  max_fat = fat + 5
 
   	where(protein: min_protein..max_protein).where(carbs: min_carbs..max_carbs).where(fat:min_fat..max_fat)
 	end

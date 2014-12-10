@@ -34,6 +34,7 @@
 <% else %>
 <%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
 
+
 <%= @recipe.name %>
 
 <%= image_tag @recipe.picture.url if @recipe.picture? %>
@@ -45,4 +46,5 @@
 
 <% @recipe.ingredients.each do |ingredient| %>
 	<%= ingredient.name %> 
+<% end %>
 <% end %>
