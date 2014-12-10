@@ -23,6 +23,7 @@ img {max-width:100%;}
 .navbar-default {
   margin: 0px;
   font-size: 2em;
+  height: 76px;
 }
 
 .navbar-default .navbar-nav>li>a {line-height: 45px;}
@@ -31,6 +32,28 @@ img {max-width:100%;}
   position: absolute;
   margin: -15px;
 }
+
+fieldset {
+  float: right;
+  height: 76px;
+  width: 60%;
+  padding: 15px 0px 0px;
+  margin: 0px;
+  border: none;
+  text-align: right;
+}
+
+fieldset input[value="Log in"] {
+  width: 9%;
+  font-size: 0.6em;
+}
+
+.sign_in {height: 30px;font-size:0.5em;}
+
+fieldset span,a {font-size: 0.5em;}
+
+fieldset span {display: inline-block;}
+
 
 
 /***** HOMEPAGE *****/
