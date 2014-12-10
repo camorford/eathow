@@ -1,22 +1,21 @@
-<%= @recipe_favorites %>
 <ul>
-    <li>
-      Name: <%= link_to @recipe.name %><br>
-      Calories: <%= @recipe.dailycalories(current_user.calories) %><br>
-      Protein: <%= @recipe.protein%><br>
-      Carbs: <%= @recipe.carbs%><br>
-      Fats: <%= @recipe.fat%>
-    </li>
+  <li>
+    Name: <%= link_to @recipe.name %><br>
+    Calories: <%= @recipe.dailycalories(current_user.calories) %><br>
+    Protein: <%= @recipe.protein%><br>
+    Carbs: <%= @recipe.carbs%><br>
+    Fats: <%= @recipe.fat%>
 
+		<%= image_tag @recipe.picture.url if @recipe.picture? %>
+		<%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
+  </li>
 </ul>
 
 
 <h3>Ingredients:</h3>
 <ul>
-<% @recipe.ingredients.each do |ingredient| %>
-
-<li><%= ingredient[:name] %></li>
-
+	<% @recipe.ingredients.each do |ingredient| %>
+		<li><%= ingredient[:name] %></li>
 <% end %>
 </ul>
 
@@ -24,27 +23,11 @@
 <h3>Directions</h3>
 <%= @recipe.directions %><br><br>
 
-
-<%= link_to "Edit Recipe", edit_recipe_path %><br>
-<%= link_to "Back to Recipes", recipes_path %><br>
-<br><br>
+<%= link_to "Edit Recipe", edit_recipe_path %>
+<%= link_to "Back to Recipes", recipes_path %>
 
 <% if current_user.favorited?(@recipe) %>
-<%= render 'add_favorite', recipe: @recipe %>
+	<%= render 'add_favorite', recipe: @recipe %>
 <% else %>
-<%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
-
-
-<%= @recipe.name %>
-
-<%= image_tag @recipe.picture.url if @recipe.picture? %>
-<%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
-
-<%= @recipe.carbs %>
-<%= @recipe.fat %>
-<%= @recipe.protein %>
-
-<% @recipe.ingredients.each do |ingredient| %>
-	<%= ingredient.name %> 
-<% end %>
+	<%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
 <% end %>
