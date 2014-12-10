@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  scope :matching, -> { where(:matching => true) }
+
   before_save :check_ingredients
 
 	has_many :recipe_ingredients
@@ -30,10 +32,14 @@ class Recipe < ActiveRecord::Base
   	where(protein: min_protein..max_protein).where(carbs: min_carbs..max_carbs).where(fat:min_fat..max_fat)
 	end
 
+  def self.match(user)
+    RecipeIngredient.where(:ingredient => user.ingredients).map(&:recipe).select { |recipe| (recipe.ingredients & user.ingredients) == recipe.ingredients}
+  end
+
 	def dailycalories(user_calories)
     if user_calories
       (calories.to_f/user_calories)*100
-    else
+    else 
       calories
     end
 	end
@@ -54,8 +60,8 @@ class Recipe < ActiveRecord::Base
 
     def check_ingredients
       ingredients = self.ingredients.map(&:name).map do |ingredient_name|
-        Ingredient.find_or_create_by(name: ingredient_name)
-      end
+      Ingredient.find_or_create_by(name: ingredient_name)
+    end
 
       self.ingredients.clear
       self.ingredients = ingredients

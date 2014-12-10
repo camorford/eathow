@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
+
+	before_save :check_ingredients
 	
 	has_many :user_ingredients
 	has_many :ingredients, through: :user_ingredients
@@ -51,4 +53,15 @@ class User < ActiveRecord::Base
 	def macros
 		[protein, carbs, fat]
 	end
+
+	private
+
+		def check_ingredients
+      ingredients = self.ingredients.map(&:name).map do |ingredient_name|
+      Ingredient.find_or_create_by(name: ingredient_name)
+    end
+
+      self.ingredients.clear
+      self.ingredients = ingredients
+    end
 end

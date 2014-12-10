@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
 
 	def index
-		@recipes = Recipe.macros(current_user.macros)
+		if params[:match]
+			@recipes = Recipe.macros(current_user.macros).match(current_user)
+		else 
+			@recipes = Recipe.macros(current_user.macros)
+		end
 	end
 
 	def show
@@ -24,8 +28,8 @@ class RecipesController < ApplicationController
 
 	private
 
-	def recipe_params
-  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,:picture,:nutrition_picture,ingredients_attributes:[:id,:name,:destroy])
-  end
+		def recipe_params
+	  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,:picture,:nutrition_picture,ingredients_attributes:[:id,:name,:destroy])
+	  end
 
 end
