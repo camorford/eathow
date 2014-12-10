@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'better_errors'
+gem 'binding_of_caller'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -39,3 +41,7 @@ gem 'binding_of_caller'
 gem 'bcrypt'
 
 gem 'cocoon', '~>1.2.6'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'

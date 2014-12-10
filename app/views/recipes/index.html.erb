@@ -22,3 +22,18 @@
 
  <% end %>
 </ul>
+
+    <li>
+    	<%= image_tag recipe.picture.url %>
+      <%= link_to recipe.name, recipe %>
+      <%= recipe.dailycalories(current_user.calories) %>
+    </li>
+  <% end %>
+
+</ul>
+
+	<% if params[:match] %>
+		<%= link_to "Un-Match", recipes_path %>
+	<% else %>
+		<%= link_to "Match", recipes_path(match: "") %>
+	<% end %>

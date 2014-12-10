@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
+
   resources :recipes
   resources :favorites
   # The priority is based upon order of creation: first created -> highest priority.

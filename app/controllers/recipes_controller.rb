@@ -3,6 +3,12 @@ class RecipesController < ApplicationController
 	def index
 		@recipes = Recipe.macros(current_user.macros)
 		@favorite = Favorite.where(user_id: current_user.id)
+
+		if params[:match] && !(@recipes.empty?)
+			@recipes = @recipes.match(current_user).uniq
+		else
+			@recipes
+		end
 	end
 
 	def edit
@@ -40,8 +46,8 @@ class RecipesController < ApplicationController
 
 	private
 
-	def recipe_params
-  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,ingredients_attributes:[:id,:name,:destroy])
-  end
+		def recipe_params
+	  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,:picture,:nutrition_picture,ingredients_attributes:[:id,:name,:destroy])
+	  end
 
 end

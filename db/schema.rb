@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20141209000830) do
 
   add_index "favorites", ["recipe_id"], name: "index_favorites_on_recipe_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+  
+ActiveRecord::Schema.define(version: 20141208205935) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -48,6 +50,8 @@ ActiveRecord::Schema.define(version: 20141209000830) do
     t.integer  "protein"
     t.integer  "fat"
     t.integer  "calories"
+    t.string   "picture"
+    t.string   "nutrition_picture"
   end
 
   create_table "user_ingredients", force: true do |t|

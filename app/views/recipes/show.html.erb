@@ -33,4 +33,16 @@
 <%= render 'add_favorite', recipe: @recipe %>
 <% else %>
 <%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
+
+<%= @recipe.name %>
+
+<%= image_tag @recipe.picture.url if @recipe.picture? %>
+<%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
+
+<%= @recipe.carbs %>
+<%= @recipe.fat %>
+<%= @recipe.protein %>
+
+<% @recipe.ingredients.each do |ingredient| %>
+	<%= ingredient.name %> 
 <% end %>

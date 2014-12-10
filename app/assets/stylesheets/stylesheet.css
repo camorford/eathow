@@ -8,50 +8,29 @@ a:-webkit-any-link {text-decoration: none}
   box-sizing: border-box;
 }
 
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+body {padding-top: 100px;}
+
+.container-fluid {
+  padding: 0;
+  max-width: 1300px;
 }
 
 img {max-width:100%;}
 
-.container-fluid {padding: 0;}
-
-
 
 /***** NAVIGATION *****/
 
-nav {
-  font-size: 1.8em;
+.navbar-default {
   margin: 0px;
+  font-size: 2em;
 }
 
-nav ul {padding-left: 10px;}
+.navbar-default .navbar-nav>li>a {line-height: 45px;}
 
-#user_nav {float: right; font-size: 0.6em}
-
-nav ul, nav li {display:inline;}
-
-nav a {
-  padding: 10px;
-  color:#5F5E5E;
-  text-decoration: none;
+.navbar-brand>img {
+  position: absolute;
+  margin: -15px;
 }
-
-#logo {margin-top: 12px}
-
-#logo a {padding: 0px }
-
-
-nav {
-  line-height: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px
-}
-
-nav img {vertical-align: middle}
-
 
 
 /***** HOMEPAGE *****/
@@ -60,13 +39,12 @@ nav img {vertical-align: middle}
 	height: 650px;
 	display: block;
   position: relative;
-  border-top: 1px solid #989898;
-  border-bottom: 1px solid #989898;
 }
 
 #home_header::after {
 	content: "";
 	background-image: url('homepage.jpg');
+  border-radius: 10px;
   background-size: cover;
   opacity: 1;
   top: 0;
@@ -100,17 +78,4 @@ nav img {vertical-align: middle}
 }
 
 .signup_button:active {box-shadow: none; margin-top: 365px}
-
-.login_button {
-  font-size: 1.8em;
-  position: absolute;
-  margin-left: 250px;
-  margin-top: 372px;
-  color: white;
-  border-bottom: 1px dashed white;
-}
-
-.login_button:hover {
-  color: #CECECE;
-  border-bottom: 1px dashed #A2A0A0;
-}
+.signup_button:hover {color:white;}
