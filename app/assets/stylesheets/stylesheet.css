@@ -22,7 +22,6 @@ img {max-width:100%;}
 
 .navbar-default {
   margin: 0px;
-  font-size: 2em;
   height: 76px;
 }
 
@@ -45,12 +44,9 @@ fieldset {
 
 fieldset input[value="Log in"] {
   width: 9%;
-  font-size: 0.6em;
 }
 
-.sign_in {height: 30px;font-size:0.5em;}
-
-fieldset span,a {font-size: 0.5em;}
+.sign_in {height: 30px;}
 
 fieldset span {display: inline-block;}
 
@@ -80,8 +76,6 @@ fieldset span {display: inline-block;}
 
 #home_header p:first-child {
   color: white;
-  font-size: 1.7em;
-  line-height: 1.5em;
   position: absolute;
   width: 600px;
   margin: 80px;
@@ -90,7 +84,6 @@ fieldset span {display: inline-block;}
 .signup_button {
   color:white;
   text-decoration: none;
-  font-size: 1.8em;
   position: absolute;
   margin-left: 95px;
   margin-top: 360px;
