@@ -19,8 +19,9 @@
 
 		<% else %>
 			<%= form_for(:session, url: login_path) do |f| %>
-		  	<%= f.text_field :email, :value => "email address" %>
-		  	<%= f.password_field :password, :value => "password"%>
+			<fieldset>
+		  	<%= f.text_field :email, :value => "email address", class:"sign_in" %>
+		  	<%= f.password_field :password, :value => "password", class:"sign_in"%>
 		  	<%= f.label :remember_me do %>
 		    	<%= f.check_box :remember_me %>
 			  	<span>Remember me</span>
@@ -28,6 +29,7 @@
 		  	<%= f.submit "Log in" %>
 
 		  	<%= link_to "Sign Up", signup_path %>
+		  </fieldset>
 			<% end %>
 		<% end %>
 
