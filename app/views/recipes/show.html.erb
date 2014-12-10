@@ -3,6 +3,10 @@
 <%= image_tag @recipe.picture.url if @recipe.picture? %>
 <%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
 
+<%= @recipe.carbs %>
+<%= @recipe.fat %>
+<%= @recipe.protein %>
+
 <% @recipe.ingredients.each do |ingredient| %>
 	<%= ingredient.name %> 
 <% end %>
