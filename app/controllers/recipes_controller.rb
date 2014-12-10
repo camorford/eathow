@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
 
 	def index
-		if params[:match]
-			@recipes = Recipe.macros(current_user.macros).match(current_user)
-		else 
-			@recipes = Recipe.macros(current_user.macros)
+		@recipes = Recipe.macros(current_user.macros)
+		if params[:match] && !(@recipes.empty?)
+			@recipes = @recipes.match(current_user).uniq
+		else
+			@recipes
 		end
 	end
 
