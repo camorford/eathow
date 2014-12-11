@@ -1,50 +1,43 @@
-<%= @recipe_favorites %>
-<ul>
-    <li>
-      Name: <%= link_to @recipe.name %><br>
-      Calories: <%= @recipe.dailycalories(current_user.calories) %><br>
-      Protein: <%= @recipe.protein%><br>
-      Carbs: <%= @recipe.carbs%><br>
-      Fats: <%= @recipe.fat%>
-    </li>
-
-</ul>
-
-
-<h3>Ingredients:</h3>
-<ul>
-<% @recipe.ingredients.each do |ingredient| %>
-
-<li><%= ingredient[:name] %></li>
-
-<% end %>
-</ul>
-
-
-<h3>Directions</h3>
-<%= @recipe.directions %><br><br>
-
-
-<%= link_to "Edit Recipe", edit_recipe_path %><br>
-<%= link_to "Back to Recipes", recipes_path %><br>
 <br><br>
-
-<% if current_user.favorited?(@recipe) %>
-<%= render 'add_favorite', recipe: @recipe %>
-<% else %>
-<%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
+<%= @recipe_favorites %>
 
 
-<%= @recipe.name %>
 
-<%= image_tag @recipe.picture.url if @recipe.picture? %>
-<%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
+<div id="header">
+<h1><%= link_to @recipe.name, @recipe %></h1>
+</div>
 
-<%= @recipe.carbs %>
-<%= @recipe.fat %>
-<%= @recipe.protein %>
+<div id="section">
+    <%= image_tag @recipe.picture.url, :class => "recipe_pic" if @recipe.picture? %>
+</div>
 
-<% @recipe.ingredients.each do |ingredient| %>
-	<%= ingredient.name %> 
-<% end %>
-<% end %>
+<div id="section">
+  <h1>Ingredients</h1>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient[:name] %></li>
+      <% end %>
+    </ul>
+</div>
+  
+<div id="section">
+  <h1>Directions</h1>
+    <%= @recipe.directions %>
+</div>
+    
+<div id="article">
+    <%= image_tag @recipe.nutrition_picture.url, :class => "nutrition_pic" if @recipe.nutrition_picture? %>
+</div>
+
+<footer>
+	<%= link_to "Edit Recipe", edit_recipe_path %><br>
+	<%= link_to "Back to Recipes", recipes_path %><br>
+	<br><br>
+
+	<% if current_user.favorited?(@recipe) %>
+	<%= render 'add_favorite', recipe: @recipe %>
+	<% else %>
+	<%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
+
+	</footer>
+		<% end %>
