@@ -1,37 +1,28 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
+<nav >
 
-	<%= link_to image_tag("eathow.png"),root_url, class:"navbar-brand" %>
-		<% if logged_in? %>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<%= link_to (raw("profile <b class='caret'></b>")), edit_user_path(current_user), :"data-toggle" => "dropdown" %>
-					<ul class="dropdown-menu">
-						<li><%= link_to "view profile", user_path(current_user) %></li>
-						<li class="divider"></li>
-						<li><%= link_to "log out", logout_path, method: :delete %></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					
-				</li>
-			</ul>
+	<%= link_to image_tag("eathow.png"),root_url, id:"logo" %>
+	<% if logged_in? %>
+		<ul id="logged_in_nav">
+			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user) %> </li>
+			<li><%= link_to "log out", logout_path, method: :delete %></li>
+		</ul>
 
-		<% else %>
-			<%= form_for(:session, url: login_path) do |f| %>
-			<fieldset>
-		  	<%= f.text_field :email, :value => "email address", class:"sign_in" %>
-		  	<%= f.password_field :password, :value => "password", class:"sign_in"%>
-		  	<%= f.label :remember_me do %>
-		    	<%= f.check_box :remember_me %>
-			  	<span>Remember me</span>
-		  	<% end %>
-		  	<%= f.submit "Log in" %>
+	<% else %>
 
-		  	<%= link_to "Sign Up", signup_path %>
-		  </fieldset>
-			<% end %>
+		<%= form_for(:session, url: login_path) do |f| %>
+		<fieldset>
+	  	<%= f.text_field :email, :value => "email address", :onfocus => "if (this.value=='email address') this.value='';", class:"sign_in" %>
+
+	  	<%= f.password_field :password, :value => "password", :onfocus => "if (this.value=='password') this.value='';", class:"sign_in"%>
+	  	<%= f.label :remember_me do %>
+	    	<%#= f.check_box :remember_me %>
+		  	<!-- <span>Remember me</span> -->
+	  	<% end %>
+	  	<%= f.submit "Log in" %>
+
+	  	<%= link_to "Sign Up", signup_path, id:"signup_button" %>
+	  </fieldset>
 		<% end %>
+	<% end %>
 
-	</div>
 </nav>

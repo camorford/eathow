@@ -1,9 +1,26 @@
 <div id="home_header">
+	<span id="jumbo">PUT YOUR DIET ON AUTOPILOT<br><span id="tagline">Plan a month's meals in minutes.</span></span>
+	<%= link_to "Sign Up", signup_path, class:"signup_button" %>
+</div>
 
-<p>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. </p>
+<div class="what_we_do">
+	<div class="col-3">
+		<h3>No Planning</h3>
+		<img src="" alt="">
+		<p>Just tell us how you eat? Paleo? Low-carb? Low-fat? </p>
+	</div>
 
-<a href="" class="signup_button">Sign Up</a>
+	<div class="col-3">
+		<h3>No Waste</h3>
+		<img src="" alt="">
+		<p></p>
+	</div>
 
+	<div class="col-3">
+		<h3>No Worries</h3>
+		<img src="" alt="">
+		<p></p>
+	</div>
 </div>
 
 <%= form_for(:user, url: users_path) do |f| %>
@@ -19,4 +36,4 @@
 
   <%= f.submit "Create my account" %>
 
-	<% end %>
+<% end %>

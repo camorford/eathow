@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   	def user_params
-  		params.require(:user).permit(:name,:email,:calories,:protein,:carbs,:fat,:password,:password_confirmation,ingredients_attributes:[:id,:name,:destroy])
+  		params.require(:user).permit(:name,:email,:calories,:protein,:carbs,:fat,:password,:password_confirmation,ingredients_attributes:[:id,:name,:_destroy])
   	end
 
     def logged_in_user

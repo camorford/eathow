@@ -38,7 +38,7 @@
 
   <div id="ingredients">
   <%= f.fields_for :ingredients do |ingredient| %>
-    <%= render 'ingredients/ingredient_fields', :f => ingredient %>
+    <%= render 'ingredients/ingredient_fields', f:ingredient %>
   <% end %>
   <%= link_to_add_association 'add ingredient',f, :ingredients, partial:"ingredients/ingredient_fields" %>
   </div>
