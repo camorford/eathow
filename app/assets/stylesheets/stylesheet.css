@@ -1,5 +1,4 @@
 /***** GLOBAL *****/
-
 a:-webkit-any-link {text-decoration: none}
 
 *, *:before, *:after {
@@ -13,7 +12,6 @@ img {max-width:100%;}
 
 
 /***** NAVIGATION *****/
-
 nav {
   position: fixed;
   top:0;
@@ -26,9 +24,7 @@ nav {
 
 #logo {padding-left: 2.5em}
 
-
 /*logged out*/
-
 form {
   display: inline-block;
   float: right;
@@ -56,12 +52,11 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   border-radius: 4px;
 }
 
-
 /*logged in*/
-
 #logged_in_nav {
   float:right;
   margin-right: 2.5em;
+  position: relative;
 }
 
 #logged_in_nav li {
@@ -79,10 +74,53 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   border-radius: 100%
 }
 
+/* dropdown */
+.dropdown {
+  position: absolute;
+  padding: 0px;
+  top:64px;
+  left: 105px;
+  font-size: 0.8em;
+}
+
+.block {
+  display: block !important;
+  padding: 0px 51px 0px 8px;
+  line-height: 45px !important;
+  background-color: #878686;
+}
+
+.block:hover {background-color: #565656}
+
+.block:first-child {border-top:none;}
+
+.block a {color:white !important;}
+
+/*
+
+#logged_in_nav {  
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.dropdown {display:none; opacity:0;visibility: hidden;
+-webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;}
+
+#logged_in_nav li:hover ul {
+  opacity: 1;
+  visibility: visible;
+}*/
+
 
 
 /***** HOMEPAGE *****/
-
 #home_header {
   background-image: url('homepage.jpg');
   background-position: center center;

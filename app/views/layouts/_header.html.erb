@@ -3,8 +3,13 @@
 	<%= link_to image_tag("eathow.png"),root_url, id:"logo" %>
 	<% if logged_in? %>
 		<ul id="logged_in_nav">
-			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user) %> </li>
-			<li><%= link_to "log out", logout_path, method: :delete %></li>
+			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user) %>
+				<ul class="dropdown">
+					<li class="block"><%= link_to "Profile", user_path(current_user) %></li>
+					<li class="block"><%= link_to "Recipes", recipes_path %></li>
+					<li class="block"><%= link_to "Log Out", logout_path, method: :delete %></li>
+				</ul>
+			</li>	
 		</ul>
 
 	<% else %>
