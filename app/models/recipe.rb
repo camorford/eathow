@@ -6,7 +6,7 @@ class Recipe < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
 	has_many :ingredients, through: :recipe_ingredients
 
-	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
+	accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
 
   mount_uploader :picture, PictureUploader
   mount_uploader :nutrition_picture, PictureUploader 

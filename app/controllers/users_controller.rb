@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
+  before_action :check_admin, only: [:index]
 
   def index
     @users = User.all
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
   private
 
   	def user_params
-  		params.require(:user).permit(:name,:email,:calories,:protein,:carbs,:fat,:password,:password_confirmation,ingredients_attributes:[:id,:name,:destroy])
+  		params.require(:user).permit(:name,:email,:calories,:protein,:carbs,:fat,:password,:password_confirmation,ingredients_attributes:[:id,:name,:_destroy])
   	end
 
     def logged_in_user

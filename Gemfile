@@ -36,7 +36,6 @@ gem 'binding_of_caller'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'binding_of_caller'
 gem 'bcrypt'
 
 gem 'cocoon', '~>1.2.6'
@@ -44,3 +43,5 @@ gem 'cocoon', '~>1.2.6'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+gem 'best_in_place', github: "bernat/best_in_place"

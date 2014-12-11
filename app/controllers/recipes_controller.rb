@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-
+	before_action :check_admin, except: [:show, :index]
+	
 	def index
 		@recipes = Recipe.macros(current_user.macros)
 		@favorite = Favorite.where(user_id: current_user.id)
@@ -47,7 +48,7 @@ class RecipesController < ApplicationController
 	private
 
 		def recipe_params
-	  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,:picture,:nutrition_picture,ingredients_attributes:[:id,:name,:destroy])
+	  	params.require(:recipe).permit(:name,:directions,:calories,:carbs,:fat,:protein,:picture,:nutrition_picture,ingredients_attributes:[:id,:name,:_destroy])
 	  end
 
 end

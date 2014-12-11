@@ -1,33 +1,37 @@
 <div id="home_header">
+	<span id="jumbo">PUT YOUR DIET ON AUTOPILOT<br><span id="tagline">Find the right meal in seconds.</span></span>
+	<%= link_to "Sign Up", signup_path, class:"signup_button" %>
+</div>
 
-<p>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. </p>
+<div id="section" class="no_planning">
+	<h1>No Planning</h1>
+		<img src="" alt="">
+			<p>Just tell us how you eat? Paleo? Low-carb? Low-fat? </p>
+</div>
 
-<a href="" class="signup_button">Sign Up</a>
+<div id="section" class="no_waste">
+	<h1>No Waste</h1>
+		<img src="" alt="">
+			<p>blahblahblah </p>
+</div>
+
+<div id="section" class="no_worries">
+	<h1>No Worries</h1>
+		<img src="" alt="">
+			<p>blahblahblah </p>
 </div>
 
 <%= form_for(:user, url: users_path) do |f| %>
-<div class="field">
 	<%= f.text_field :email, :value => "Email" %>
-</div>
 
-<div class="field">
-	 <%= f.password_field :password, :value => "Password" %>
-</div>
+	<%= f.password_field :password, :value => "Password" %>
 
-<div class="field">
 	<%= f.text_field :carbs, :value => "Carbs" %> %
-</div>
 
-<div class="field">
 	<%= f.text_field :protein, :value => "Protein" %> %
-</div>
 
-<div class="field">
 	<%= f.text_field :fat, :value => "Fat" %> %
-</div>
 
- <div class="actions">
   <%= f.submit "Create my account" %>
-</div> 
 
-	<% end %>
+<% end %>

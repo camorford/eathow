@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
 	has_many :ingredients, through: :user_ingredients
 	has_many :favorites
 	has_many :favorite_recipes, through: :favorites, source: :favorited, source_type: 'Recipe'
-	accepts_nested_attributes_for :ingredients, :reject_if => :all_blank, :allow_destroy => true
-
+	accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
 	before_save { self.email = email.downcase }
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

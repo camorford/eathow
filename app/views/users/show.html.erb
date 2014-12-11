@@ -28,10 +28,10 @@ Welcome <%= @user.name %>!<br>
 
 <ul>
   <% if @user.calories %>
-	   <li>Calorie Intake: <%= @user.calories %></li>
+	   <li>Calorie Intake:<%= best_in_place @user, :calories, :type => :input %> </li>
   <% end %>
-  	<li>Protein: <%= @user.protein %></li>
-  	<li>Carbs: <%= @user.carbs %></li>
-  	<li>Fat: <%= @user.fat %></li>
+  	<li>Protein:<%= best_in_place @user, :protein, :type => :input %> </li>
+  	<li>Carbs: <%= best_in_place @user, :carbs, :type => :input %></li>
+  	<li>Fat:<%= best_in_place @user, :fat, :type => :input %></li>
 </ul>
 

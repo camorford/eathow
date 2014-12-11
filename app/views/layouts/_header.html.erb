@@ -1,0 +1,33 @@
+<nav>
+
+	<%= link_to image_tag("eathow.png"),root_url, id:"logo" %>
+	<% if logged_in? %>
+		<ul id="logged_in_nav">
+			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user), id:"logged_nav_first" %>
+				<ul class="dropdown">
+					<li class="block"><%= link_to "Profile", user_path(current_user) %></li>
+					<li class="block"><%= link_to "Recipes", recipes_path %></li>
+					<li class="block"><%= link_to "Log Out", logout_path, method: :delete %></li>
+				</ul>
+			</li>	
+		</ul>
+
+	<% else %>
+
+		<%= form_for(:session, url: login_path) do |f| %>
+		<fieldset>
+	  	<%= f.text_field :email, :value => "email address", :onfocus => "if (this.value=='email address') this.value='';", class:"sign_in" %>
+
+	  	<%= f.password_field :password, :value => "password", :onfocus => "if (this.value=='password') this.value='';", class:"sign_in"%>
+	  	<%= f.label :remember_me do %>
+	    	<%#= f.check_box :remember_me %>
+		  	<!-- <span>Remember me</span> -->
+	  	<% end %>
+	  	<%= f.submit "Log in" %>
+
+	  	<%= link_to "Sign Up", signup_path, id:"signup_button" %>
+	  </fieldset>
+		<% end %>
+	<% end %>
+
+</nav>

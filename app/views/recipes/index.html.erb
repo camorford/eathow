@@ -1,17 +1,27 @@
 <%# provide(:title, 'All recipes') %>
-<br><br><br><br><br>
-
 <% @recipes.each do |recipe| %>
 <div id="section">
-  <%= link_to recipe.name, recipe %><br>
-    <%= image_tag recipe.picture.url, class:"picture" if recipe.picture? %>
-  </div>
+<div class="photo-grid">
+	<figure>
+		 <%= image_tag recipe.picture.url, class:"picture" if recipe.picture? %>
+  			<figcaption>
+	  			<p><%= link_to recipe.name, recipe, class:"recipelink" %><br>
+	  				<%= link_to recipe do %>
+	  					<i class= "fa fa-arrow-circle-o-right fa-lg"></i>
+	  				<% end %>
+	  			</p>
+  			</figcaption>
+		</figure>
+ 	</li>
+	</div>
+</div>
 <% end %>
       <%# recipe.dailycalories(current_user.calories) %>
 
-
+<footer>
 <% if params[:match] %>
   <%= link_to "Un-Match", recipes_path %>
 <% else %>
   <%= link_to "Match", recipes_path(match: "") %>
 <% end %>
+</footer>

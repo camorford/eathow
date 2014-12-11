@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 4881fd1bda32bc9f922970657ce7d4931e997dff
+  specs:
+    best_in_place (3.0.0)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -201,6 +209,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  best_in_place!
   better_errors
   binding_of_caller
   carrierwave
