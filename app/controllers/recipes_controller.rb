@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-
+	before_action :check_admin, except: [:show, :index]
+	
 	def index
 		@recipes = Recipe.macros(current_user.macros)
 		@favorite = Favorite.where(user_id: current_user.id)

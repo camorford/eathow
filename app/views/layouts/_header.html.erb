@@ -3,7 +3,7 @@
 	<%= link_to image_tag("eathow.png"),root_url, id:"logo" %>
 	<% if logged_in? %>
 		<ul id="logged_in_nav">
-			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user) %>
+			<li><%= gravatar_for current_user %><%= link_to "Hey, "+current_user.name+"!", user_path(current_user), id:"logged_nav_first" %>
 				<ul class="dropdown">
 					<li class="block"><%= link_to "Profile", user_path(current_user) %></li>
 					<li class="block"><%= link_to "Recipes", recipes_path %></li>

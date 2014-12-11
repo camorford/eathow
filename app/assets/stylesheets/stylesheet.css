@@ -96,27 +96,19 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 
 .block a {color:white !important;}
 
-/*
-
-#logged_in_nav {  
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  transition: all 0.2s;
+.dropdown {
+  display:none;
+  opacity:0;
+  visibility: hidden;
 }
 
-.dropdown {display:none; opacity:0;visibility: hidden;
--webkit-transiton: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -transition: opacity 0.2s;}
-
 #logged_in_nav li:hover ul {
+  display: block;
   opacity: 1;
   visibility: visible;
-}*/
+}
+
+#logged_nav_first {padding-bottom: 50px;}
 
 
 
