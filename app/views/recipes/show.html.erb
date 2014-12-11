@@ -1,14 +1,12 @@
 <br><br>
 <%= @recipe_favorites %>
 
-
-
 <div id="header">
-<h1><%= link_to @recipe.name, @recipe %></h1>
+  <h1><%= link_to @recipe.name, @recipe %></h1>
 </div>
 
 <div id="section">
-    <%= image_tag @recipe.picture.url, :class => "recipe_pic" if @recipe.picture? %>
+  <%= image_tag @recipe.picture.url, :class => "recipe_pic" if @recipe.picture? %>
 </div>
 
 <div id="section">
@@ -30,14 +28,13 @@
 </div>
 
 <footer>
-	<%= link_to "Edit Recipe", edit_recipe_path %><br>
-	<%= link_to "Back to Recipes", recipes_path %><br>
-	<br><br>
+  <%= link_to "Edit Recipe", edit_recipe_path %><br>
+	 <%= link_to "Back to Recipes", recipes_path %><br>
+    <br><br>
 
-	<% if current_user.favorited?(@recipe) %>
-	<%= render 'add_favorite', recipe: @recipe %>
-	<% else %>
-	<%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
-
-	</footer>
-		<% end %>
+	   <% if current_user.favorited?(@recipe) %>
+	     <%= render 'add_favorite', recipe: @recipe %>
+	   <% else %>
+	 <%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
+  <% end %>
+</footer>

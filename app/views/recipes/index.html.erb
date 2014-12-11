@@ -1,44 +1,14 @@
 <%# provide(:title, 'All recipes') %>
-  <%= @recipe_favorites %>
+<br><br><br><br><br>
 
-  <%= image_tag @recipe.picture.url, class:"picture" if @recipe.picture? %>
-  <%= image_tag @recipe.nutrition_picture.url if @recipe.nutrition_picture? %>
+<% @recipes.each do |recipe| %>
+<div id="section">
+  <%= link_to recipe.name, recipe %><br>
+    <%= image_tag recipe.picture.url, class:"picture" if recipe.picture? %>
+  </div>
+<% end %>
+      <%# recipe.dailycalories(current_user.calories) %>
 
-
-  <ul>
-      <li>
-        Name: <%= link_to @recipe.name %><br>
-        Calories: <%= @recipe.dailycalories(current_user.calories) %><br>
-        Protein: <%= @recipe.protein%><br>
-        Carbs: <%= @recipe.carbs%><br>
-        Fats: <%= @recipe.fat%>
-      </li>
-
-  </ul>
-
-
-  <h3>Ingredients:</h3>
-  <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-  <%= ingredient[:name] %>
-  <% end %>
-  </ul>
-
-
-  <h3>Directions</h3>
-  <%= @recipe.directions %><br><br>
-
-
-  <%= link_to "Edit Recipe", edit_recipe_path %><br>
-  <%= link_to "Back to Recipes", recipes_path %><br>
-  <br><br>
-
-  <% if current_user.favorited?(@recipe) %>
-  <%= render 'add_favorite', recipe: @recipe %>
-  <% else %>
-  <%= link_to 'Remove from favorites', favorite_path(@recipe), method: :delete %>
-
-  <% end %>
 
 <% if params[:match] %>
   <%= link_to "Un-Match", recipes_path %>

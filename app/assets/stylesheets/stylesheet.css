@@ -15,7 +15,7 @@
 #section {
     width:350px;
     float:left;
-    padding:5px; 
+    padding:10px; 
 }
 
 #article {
@@ -30,3 +30,10 @@
     text-align:center;
     padding:5px; 
 }
+ 
+
+.picture {
+  width:300px;
+  height:220px;
+}
+
