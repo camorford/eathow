@@ -2,13 +2,12 @@ class RecipesController < ApplicationController
 	before_action :check_admin, except: [:show, :index]
 	
 	def index
-		@recipes = Recipe.macros(current_user.macros)
-		@favorite = Favorite.where(user_id: current_user.id)
+		@recipes = Recipe.match(current_user).uniq
 
-		if params[:match] && !(@recipes.empty?)
-			@recipes = @recipes.match(current_user).uniq
-		else
-			@recipes
+		if params[:match] == 'macros'
+			@recipes = Recipe.macros(current_user.macros)
+		elsif params[:match] == 'both' && !(@recipes.empty?)
+			@recipes = Recipe.macros(current_user.macros) & Recipe.match(current_user)		
 		end
 	end
 
