@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Eathow</title>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,7 +9,6 @@
 </head>
 <body>
 
-<div class="container">
 <%= render 'layouts/header' %>
 
 <% flash.each do |message_type, message| %>
@@ -18,7 +16,6 @@
 <% end %>
 
 <%= yield %>
-</div>
 
 </body>
 </html>

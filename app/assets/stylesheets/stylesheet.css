@@ -11,7 +11,24 @@ img {max-width:100%;}
 
 body {margin-top: 80px}
 
+.container {
+  width:90%;
+  margin: 0 auto;
+}
 
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+ 
+.clearfix:after {
+  clear: both;
+}
+ 
+.clearfix {
+  *zoom: 1;
+}
 
 /***** NAVIGATION *****/
 nav {
@@ -170,3 +187,97 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   text-align:center;
   top: 160px;
 }
+
+
+
+
+#profile {
+  margin-top: 120px;
+  border: 1px solid #C9C9C9;
+  padding: 0px 0px;
+  border-radius: 10px;
+  height: 500px;
+  background-color: #F8F8F8;
+}
+
+#user_info {
+  float:left;
+  border-right: 1px solid #C9C9C9;
+  width: 33.33%;
+  height: 470px;
+}
+
+#user_info h2 {
+  background-color: #AEE366;
+  margin: 0px;
+  padding: 30px 10px;
+  border-bottom: 1px solid #C9C9C9;
+  border-radius: 10px ;
+}
+
+#user_ingredients {
+  float:left;
+  width: 33.33%;
+  border-right: 1px solid #C9C9C9;
+  height: 470px;  
+}
+
+#user_ingredients h2 {
+  background-color: #AEE366;
+  margin: 0px;
+  padding: 30px 10px;
+  border-bottom: 1px solid #C9C9C9;
+  border-radius: 10px ;
+}
+
+#user_ingredients ul {list-style: none;padding:0px;}
+#user_ingredients li {padding: 8px 0px}
+
+#user_favorites {
+  float:left;
+  width:33.33%;
+  height: 470px;  
+}
+
+#user_favorites h2 {
+  margin: 0px;
+  padding: 30px 10px;
+  background-color: #AEE366;
+  border-radius: 10px ;
+}
+
+#user_favorites ul {
+  margin: 0px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+#user_favorites li {
+  padding: 25px 20px;
+  font-size: 1.3em;
+}
+
+#save_changes {
+  float: left;
+  clear: both;
+  width: 100%;
+  border-top: 1px solid #C9C9C9;
+  color: #FBB03B;
+  text-align:right;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.edit_profile {
+  float:right;
+  width:100%;
+  padding:4px;
+}
+
+.divider {border-bottom: 1px solid #C9C9C9;}
+
+.profile_container {padding: 15px;}
+
+.style_shit {padding: 10px}
+
+.profile_container h3 {}

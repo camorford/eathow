@@ -1,37 +1,61 @@
-<%= gravatar_for @user %><br><Br>
+<div class="container">
+  <div id="profile" class="clearfix">
+    
 
-<%#= @user.email %>
-Welcome <%= @user.name %>!<br>
-
-
-<% if logged_in? %>
-  <%= link_to "Edit User Information", edit_user_path %>
-<% end %>
-
-
-<% if @user.favorites.any? %>
-<h1>Favorited Recipes</h1>
-
-<ul> 
-   		<% @user.favorites.each do |favorite| %>
-    <li>
-    	<%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
-    </li>
-  <% end %>
- <% end %>
-</ul>
+    <div id="user_info">
+      <h2>Profile</h2>
+      <div class="profile_container">
+      
 
 
+        <div class="style_shit"><strong>Name:</strong> <%= @user.name %></div>
+        <div class="style_shit"><strong>Email:</strong> <%= @user.email %></div>
+        <ul>
+        <h3>My Diet</h3>
+          <% if @user.calories %>
+            <li>Calorie Intake:<%= best_in_place @user, :calories, :type => :input %> </li>
+          <% end %>
+            <h4>Macros</h4>
+          	<li>Protein:<%= best_in_place @user, :protein, :type => :input %> </li>
+          	<li>Carbs: <%= best_in_place @user, :carbs, :type => :input %></li>
+          	<li>Fat:<%= best_in_place @user, :fat, :type => :input %></li>
+        </ul>
 
 
-<h1>Daily Macros</h1>
 
-<ul>
-  <% if @user.calories %>
-	   <li>Calorie Intake:<%= best_in_place @user, :calories, :type => :input %> </li>
-  <% end %>
-  	<li>Protein:<%= best_in_place @user, :protein, :type => :input %> </li>
-  	<li>Carbs: <%= best_in_place @user, :carbs, :type => :input %></li>
-  	<li>Fat:<%= best_in_place @user, :fat, :type => :input %></li>
-</ul>
+      </div>
+    </div>
 
+
+    <div id="user_ingredients">
+      <h2>My Ingredients</h2>
+      <div class="profile_container">
+      <% if @user.ingredients %>
+        <ul>
+          <% @user.ingredients.each do |ingredient| %>
+            <li>-<%= ingredient.name %> </li>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+    </div>
+
+
+    <div id="user_favorites">
+      <% if @user.favorites.any? %>
+        <h2>Favorited Recipes</h2>
+        <ul> 
+          <% @user.favorites.each do |favorite| %>
+            <li class="divider">
+              
+              <%= link_to favorite.recipe.name, recipe_path(favorite.recipe) %>
+            </li>
+          <% end %>
+        </ul>  
+      <% end %>
+    </div>
+
+    <%= link_to "Edit Profile", edit_user_path, id:"save_changes" %>
+
+  </div>
+</div>
